@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const config_1 = require("../config/config");
+var config_1 = require("../config/config");
 exports.match = function (testID) {
     switch (testID) {
         case "test7":
@@ -13,5 +13,7 @@ exports.match = function (testID) {
             return config_1.Config.TEST_10;
         case "test11_12":
             return config_1.Config.TEST_11_12;
+        case "test8_select":
+            return config_1.Config.TEST_8_SELECT;
     }
 };

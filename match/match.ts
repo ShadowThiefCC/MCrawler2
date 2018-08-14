@@ -12,5 +12,7 @@ export let match = function(testID:string){
         return Config.TEST_10
         case "test11_12":
         return Config.TEST_11_12
+        case "test8_select":
+        return Config.TEST_8_SELECT
     }
 }

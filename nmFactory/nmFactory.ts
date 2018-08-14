@@ -1,7 +1,7 @@
 import * as Nightmare from 'nightmare'
 
 export let nightmare = new Nightmare({
-    show:false,
+    show:true,
     openDevTools:{
         mode:"detach"
     }

@@ -13,14 +13,16 @@ const sid = process.argv[2]
 const opera = process.argv[3]
 //测试号
 const testID = process.argv[4]
+//教学老师
+const teacher = process.argv[5]
 
 isEmpty(sid)
 isEmpty(opera)
 isEmpty(testID)
-
+isEmpty(teacher)
 
 if(opera == "collection"){
-    loginNightmare(sid, testID)
+    loginNightmare(sid, testID, teacher)
     .wait("#bottom_submitButtonRow")
     //直接提交
     .evaluate(() => {
@@ -84,7 +86,7 @@ if(opera == "collection"){
     //自动填写
     (async () => {
         let doc = await getQuestion({})
-        loginNightmare(sid, testID)
+        loginNightmare(sid, testID, teacher)
         .wait("legend")
         .evaluate<Document[]>((doc:Document[]) => {
             let questionId = 1
@@ -160,4 +162,5 @@ if(opera == "collection"){
             process.exit()
         })
     })()
+
 }

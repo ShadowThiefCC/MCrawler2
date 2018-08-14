@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Nightmare = require("nightmare");
+var Nightmare = require("nightmare");
 exports.nightmare = new Nightmare({
-    show: false,
+    show: true,
     openDevTools: {
         mode: "detach"
     }
