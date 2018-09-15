@@ -10,7 +10,9 @@
 
 ## CLI
 
+```
 node index [sid] [opera] [testID]
+```
 
 <br />sid为学号
 <br />opera为操作标志，可为`collection`收集答案和`doTest`做题
