@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/commander": "^2.12.2",
     "@types/jquery": "^3.3.2",
     "@types/mongoose": "^5.0.15",
     "@types/nightmare": "^2.10.4",
+    "commander": "^2.19.0",
     "electron-prebuilt": "^1.4.13",
     "mongoose": "^5.1.2",
     "nightmare": "^3.0.1",
