@@ -93,62 +93,70 @@ if (opera == "collection") {
     let doc = await getQuestion({});
     loginNightmare(sid, testID, teacher)
       .wait("legend")
-      .evaluate<Document[]>((doc: Document[]) => {
-        let questionId = 1;
-        let questionContent = "stepcontent";
+      .evaluate<Document[]>(
+        (doc: Document[]) => {
+          let questionId = 1;
+          let questionContent = "stepcontent";
 
-        let trim = function(s: string): string {
-          return s.replace(/\\s*|\t|\r|\n/g, "");
-        };
+          let trim = function(s: string): string {
+            return s.replace(/\\s*|\t|\r|\n/g, "");
+          };
 
-        while (true) {
-          let ele = document.querySelector(`#${questionContent}${questionId}`);
-          if (!ele) break;
-          //题目
-          let t = (ele.querySelector("legend") as any).innerText;
+          while (true) {
+            let ele = document.querySelector(
+              `#${questionContent}${questionId}`
+            );
+            if (!ele) break;
+            //题目
+            let t = (ele.querySelector("legend") as any).innerText;
 
-          //判断题
-          let judgeAnswer = ele.parentElement.querySelectorAll("p");
-          //多选题 单选题
-          let checkBoxRadioAnswer = ele.parentElement.querySelectorAll(
-            "tbody tr"
-          );
+            //判断题
+            let judgeAnswer = ele.parentElement.querySelectorAll("p");
+            //多选题 单选题
+            let checkBoxRadioAnswer = ele.parentElement.querySelectorAll(
+              "tbody tr"
+            );
 
-          //查看是否存在此题目的答案
-          let tArr = doc.filter(v =>
-            new RegExp(trim(t), "g").test(trim(v.title))
-          );
-          if (tArr.length != 0) {
-            // if(new RegExp("展过程中，要更加自觉").test(t)) console.log(tArr)
-            for (let val of (tArr[0] as any).answer) {
-              //判断题
-              for (let i = 0; i < judgeAnswer.length - 1; i++) {
-                if (!judgeAnswer.item(i)) break;
-                if (
-                  new RegExp(trim(judgeAnswer.item(i).innerText), "g").test(val)
-                ) {
-                  // console.log("判断题点击");
-                  let obj = judgeAnswer.item(i).querySelector("label") as any;
-                  if (obj) obj.click();
+            //查看是否存在此题目的答案
+            let tArr = doc.filter(v =>
+              new RegExp(trim(t), "g").test(trim(v.title))
+            );
+            if (tArr.length != 0) {
+              // if(new RegExp("展过程中，要更加自觉").test(t)) console.log(tArr)
+              for (let val of (tArr[0] as any).answer) {
+                //判断题
+                for (let i = 0; i < judgeAnswer.length - 1; i++) {
+                  if (!judgeAnswer.item(i)) break;
+                  if (
+                    new RegExp(trim(judgeAnswer.item(i).innerText), "g").test(
+                      val
+                    )
+                  ) {
+                    // console.log("判断题点击");
+                    let obj = judgeAnswer.item(i).querySelector("label") as any;
+                    if (obj) obj.click();
+                  }
                 }
-              }
 
-              //多选单选题
-              for (let i = 0; i < checkBoxRadioAnswer.length; i++) {
-                if (!checkBoxRadioAnswer.item(i)) break;
-                let text: string = (checkBoxRadioAnswer.item(i) as any)
-                  .innerText;
-                if (new RegExp(trim(text), "g").test(val)) {
-                  (checkBoxRadioAnswer
-                    .item(i)
-                    .querySelector("label") as any).click();
+                //多选单选题
+                for (let i = 0; i < checkBoxRadioAnswer.length; i++) {
+                  if (!checkBoxRadioAnswer.item(i)) break;
+                  let text: string = (checkBoxRadioAnswer.item(i) as any)
+                    .innerText;
+                  if (new RegExp(trim(text), "g").test(val)) {
+                    (checkBoxRadioAnswer
+                      .item(i)
+                      .querySelector("label") as any).click();
+                  }
                 }
               }
             }
+            questionId++;
           }
-          questionId++;
-        }
-      }, doc)
+        },
+        null,
+        doc
+      )
       //直接提交
       .evaluate(() => {
         //提交测验
