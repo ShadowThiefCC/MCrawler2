@@ -14,9 +14,9 @@
 node index [sid] [opera] [testID]
 ```
 
-<br />sid为学号
-<br />opera为操作标志，可为`collection`收集答案和`doTest`做题
-<br />testID为做的章节，比如第七章`test7`
+<br />`sid` 为学号
+<br />`opera` 为操作标志，可为`collection`收集答案和`doTest`做题
+<br />`testID` 为做的章节，比如第七章`test7`
 
 多个章节，比如11和12章一起，`test11_12`
 
