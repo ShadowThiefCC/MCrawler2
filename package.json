@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "./dist/app.js",
+  "bin": {
+    "mcrawler": "./dist/app.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/app.js"
   },
-  "author": "",
+  "author": "younccat",
   "license": "ISC",
   "dependencies": {
     "@types/commander": "^2.12.2",
