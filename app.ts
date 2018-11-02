@@ -1,20 +1,18 @@
-import { nightmare } from "./nmFactory/nmFactory";
 import { Config } from "./config/config";
-import { parseSid } from "./parseSid/parseSid";
-import { trim } from "./trim/trim";
 import { insertQuestion } from "./insertQuestion/insertQuestion";
 import { getQuestion } from "./getQuestion/getQuestion";
 import { loginNightmare } from "./login/login";
 import { isEmpty } from "./argv/argv";
+import { program } from "./commander";
 
 //第一个参数为学号
-const sid = process.argv[2];
+const sid = program.studentID;
 //决定实现什么操作
-const opera = process.argv[3];
+const opera = program.type;
 //测试号
-const testID = process.argv[4];
+const testID = program.testID;
 //教学老师
-const teacher = process.argv[5];
+const teacher = program.teacher;
 
 isEmpty(sid);
 isEmpty(opera);
