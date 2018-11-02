@@ -27,3 +27,7 @@ yarn global add mcrawler
 ```
 
 ![](https://github.com/HaoDaWang/MCrawler2/blob/master/doc/images/help.png)
+
+## 图形化界面
+
+![](https://github.com/HaoDaWang/MCrawler2/blob/master/doc/images/app.png)
