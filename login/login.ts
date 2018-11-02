@@ -1,7 +1,6 @@
 import { nightmare } from "../nmFactory/nmFactory";
 import { Config } from "../config/config";
 import { parseSid } from "../parseSid/parseSid";
-import { match } from "../match/match";
 
 //登陆
 export let loginNightmare = function(
