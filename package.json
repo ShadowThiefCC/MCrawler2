@@ -1,6 +1,6 @@
 {
   "name": "mcrawler2",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/app.js"
+    "start": "node ./dist/app.js",
+    "prepublish": "npm run build"
   },
   "author": "younccat",
   "license": "ISC",
