@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Config } from "./config/config";
 import { insertQuestion } from "./insertQuestion/insertQuestion";
 import { getQuestion } from "./getQuestion/getQuestion";
